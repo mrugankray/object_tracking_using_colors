@@ -8,6 +8,7 @@ def main():
     filename_b = 'Blue.avi'
     filename_g = 'Green.avi'
     filename_r = 'Red.avi'
+    filename_sk = 'Skin.avi'
     codec = cv2.VideoWriter_fourcc('X','V','I','D')
     framerate = 24
     resolution = (640,480)
@@ -15,6 +16,7 @@ def main():
     video_blue = cv2.VideoWriter(filename_b, codec, framerate, resolution)
     video_green = cv2.VideoWriter(filename_g, codec, framerate, resolution)
     video_red = cv2.VideoWriter(filename_r, codec, framerate, resolution)
+    video_skin = cv2.VideoWriter(filename_sk, codec, framerate, resolution)
     if cam.isOpened():
         ret, frame = cam.read()
         print(ret)
@@ -77,7 +79,7 @@ def main():
         video_blue.write(output_blue)
         video_green.write(output_green)
         video_red.write(output_red)
-
+        video_skin.write(output_skin)
         if cv2.waitKey(1) == 27:
             break
     cv2.destroyAllWindows()
